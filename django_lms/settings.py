@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&j#z(xja&ie3ziupj5gaucqxd*cb3cb12lvvqjsk!gm7zvpz*q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -83,12 +83,16 @@ WSGI_APPLICATION = 'django_lms.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgresql://todos_q5w5_user:Aks748z3Z8YsFyi2uOv2fxuXUeUZMKMn@dpg-ct41hk52ng1s73a1if60-a/todos_q5w5',
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'todos_q5w5',
+        'USER': 'todos_q5w5_user',
+        'PASSWORD': 'Aks748z3Z8YsFyi2uOv2fxuXUeUZMKMn',
+        'HOST': 'dpg-ct41hk52ng1s73a1if60-a',
+        'PORT': '5432',
+        'CONN_MAX_AGE': 600,
+    }
 }
 
 # Password validation
