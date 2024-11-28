@@ -1,22 +1,22 @@
 databases:
-  - name: mysitedb
+  - name: dpg-ct41hk52ng1s73a1if60-a
     plan: free
-    databaseName: mysite
-    user: mysite
+    databaseName: todos_q5w5
+    user: todos_q5w5_user
 
 services:
   - type: web
     plan: free
-    name: mysite
+    name: test-api
     runtime: python
     buildCommand: "./build.sh"
     startCommand: "python -m gunicorn django_lms.asgi:application -k uvicorn.workers.UvicornWorker"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysitedb
+          name: postgresql://todos_q5w5_user:Aks748z3Z8YsFyi2uOv2fxuXUeUZMKMn@dpg-ct41hk52ng1s73a1if60-a/todos_q5w5
           property: connectionString
-      - key: SECRET_KEY
+      - key: Aks748z3Z8YsFyi2uOv2fxuXUeUZMKMn
         generateValue: true
       - key: WEB_CONCURRENCY
         value: 4
