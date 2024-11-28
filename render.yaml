@@ -14,7 +14,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: postgresql://todos_q5w5_user:Aks748z3Z8YsFyi2uOv2fxuXUeUZMKMn@dpg-ct41hk52ng1s73a1if60-a/todos_q5w5
+          name: todos_q5w5
           property: connectionString
       - key: Aks748z3Z8YsFyi2uOv2fxuXUeUZMKMn
         generateValue: true
